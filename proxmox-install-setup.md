@@ -6,24 +6,23 @@
 2. burn it via [https://rufus.ie/en/](https://rufus.ie/en/) 
 3. follow up installation setup
 
-## setup IP
+## Setup IP
 
-IP: 192.168.50.80
+IP: 192.168.99.80
 
-Gateway: 192.168.50.1
+Gateway: 192.168.99.1
 
-nameserver: 192.168.50.1
+nameserver: 192.168.99.1
 
-## install packages
+## Install packages
 
 ```bash
-apt update; apt upgrade -y
-
+apt update
+apt upgrade -y
 apt install -y vim glances tmux net-tools sudo
-
 ```
 
-## create network bridge
+## Create network bridge
 
 select on node in side bar
 
