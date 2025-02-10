@@ -1,5 +1,13 @@
 # Proxmox Installationm, Setup & Troubleshooting 
 
+---
+
+## Table of Contents
+1. [Proxmox VE Installation & Setup Guide](https://github.com/mahradbt/Proxmox-Troubleshooting-Guide/blob/main/proxmox-install-setup.md)
+
+
+---
+
 ## Contributing
 If you find any issues or have suggestions for improving this guide, feel free to contribute:
 
