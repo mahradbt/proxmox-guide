@@ -8,7 +8,7 @@ Proxmox VE is widely used for virtualization, offering a robust and flexible env
 
 ## Table of Contents
 1. [Proxmox VE Installation & Setup Guide](https://github.com/mahradbt/Proxmox-Troubleshooting-Guide/blob/main/proxmox-install-setup.md)
-
+2. [Create VM Template](https://github.com/mahradbt/Proxmox-Troubleshooting-Guide/blob/main/create-vm-template.md)
 
 ---
 
