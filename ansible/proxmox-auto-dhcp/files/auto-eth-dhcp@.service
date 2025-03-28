@@ -1,0 +1,7 @@
+[Unit]
+Description=Auto DHCP for interface %i
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/auto-eth-dhcp.sh %i

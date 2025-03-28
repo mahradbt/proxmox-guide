@@ -1,0 +1,30 @@
+---
+- name: Deploy auto DHCP detection for Proxmox USB-C adapters
+  hosts: proxmox
+  become: true
+  tasks:
+
+    - name: Copy DHCP script with interface support
+      copy:
+        src: files/auto-eth-dhcp.sh
+        dest: /usr/local/bin/auto-eth-dhcp.sh
+        mode: '0755'
+
+    - name: Copy systemd templated service
+      copy:
+        src: files/auto-eth-dhcp@.service
+        dest: /etc/systemd/system/auto-eth-dhcp@.service
+        mode: '0644'
+
+    - name: Copy udev rule to trigger systemd service
+      copy:
+        src: files/99-auto-dhcp.rules
+        dest: /etc/udev/rules.d/99-auto-dhcp.rules
+        mode: '0644'
+
+    - name: Reload systemd and udev
+      shell: |
+        systemctl daemon-reexec
+        systemctl daemon-reload
+        udevadm control --reload-rules
+        udevadm trigger
