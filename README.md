@@ -9,6 +9,8 @@ Proxmox VE is widely used for virtualization, offering a robust and flexible env
 ## Table of Contents
 1. [Proxmox VE Installation & Setup Guide](https://github.com/mahradbt/Proxmox-Troubleshooting-Guide/blob/main/proxmox-install-setup.md)
 2. [Create VM Template](https://github.com/mahradbt/Proxmox-Troubleshooting-Guide/blob/main/create-vm-template.md)
+3. [Automatic Network Failover and Default Gateway Recovery Playbook](https://github.com/mahradbt/proxmox-guide/blob/main/ansible/proxmox-auto-dhcp/network-failover-and-gateway-recovery.md)
+
 
 ---
 
