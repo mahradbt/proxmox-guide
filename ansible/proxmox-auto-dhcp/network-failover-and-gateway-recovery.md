@@ -36,8 +36,8 @@ ansible-playbook -i inventory.ini playbook.yml
 ### 📁 `inventory.ini` Example:
 
 ```ini
-[network_recovery_targets]
-192.168.1.50 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+[proxmox]
+proxmox-node ansible_host=192.168.1.50 ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
 
 ---
