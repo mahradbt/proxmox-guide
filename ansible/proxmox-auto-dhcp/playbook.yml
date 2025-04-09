@@ -4,27 +4,37 @@
   become: true
   tasks:
 
+    - name: Disable IPv6 system-wide via sysctl
+      copy:
+        dest: /etc/sysctl.d/99-disable-ipv6.conf
+        content: |
+          net.ipv6.conf.all.disable_ipv6 = 1
+          net.ipv6.conf.default.disable_ipv6 = 1
+        mode: '0644'
+
+    - name: Apply sysctl changes
+      command: sysctl --system
+
     - name: Copy DHCP script with interface support
       copy:
-        src: files/auto-eth-dhcp.sh
-        dest: /usr/local/bin/auto-eth-dhcp.sh
+        src: files/auto-dhcp.sh
+        dest: /usr/local/bin/auto-dhcp.sh
         mode: '0755'
 
     - name: Copy systemd templated service
       copy:
-        src: files/auto-eth-dhcp@.service
-        dest: /etc/systemd/system/auto-eth-dhcp@.service
+        src: files/auto-dhcp.service
+        dest: /etc/systemd/system/auto-dhcp.service
         mode: '0644'
 
-    - name: Copy udev rule to trigger systemd service
+    - name: Copy systemd templated timer
       copy:
-        src: files/99-auto-dhcp.rules
-        dest: /etc/udev/rules.d/99-auto-dhcp.rules
+        src: files/auto-dhcp.timer
+        dest: /etc/systemd/system/auto-dhcp.timer
         mode: '0644'
 
-    - name: Reload systemd and udev
+    - name: Reload systemd service & timer
       shell: |
         systemctl daemon-reexec
         systemctl daemon-reload
-        udevadm control --reload-rules
-        udevadm trigger
+        systemctl enable --now auto-dhcp.timer

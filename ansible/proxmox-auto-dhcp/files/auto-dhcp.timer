@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Auto DHCP service every 20 seconds
+
+[Timer]
+OnBootSec=10
+OnUnitActiveSec=20
+AccuracySec=1s
+Unit=auto-dhcp.service
+
+[Install]
+WantedBy=timers.target
